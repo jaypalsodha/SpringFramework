@@ -32,6 +32,8 @@ The configuration metadata can be in any form provided below:
   1. XML based
   2. Java Annotations
   3. Java Codes
+
+The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured and executable system or application.
   
   
 
