@@ -74,31 +74,31 @@ Bean definition contains the information called configuration metadata, which is
   3. Bean's dependencies
 All the above configuration metadata translates into a set of the following properties that make up each bean definition.
 
-1	class
+1. class
   This attribute is mandatory and specifies the bean class to be used to create the bean.
 
-2	name
+2. name
   This attribute specifies the bean identifier uniquely. In XMLbased configuration metadata, you use the id and/or name attributes to specify the bean identifier(s).
 
-3	scope
+3. scope
   This attribute specifies the scope of the objects created from a particular bean definition and it will be discussed in bean scopes chapter.
 
-4	constructor-arg
+4. constructor-arg
   This is used to inject the dependencies and will be discussed in subsequent chapters.
 
-5	properties
+5. properties
   This is used to inject the dependencies and will be discussed in subsequent chapters.
 
-6	autowiring mode
+6. autowiring mode
   This is used to inject the dependencies and will be discussed in subsequent chapters.
 
-7	lazy-initialization mode
+7. lazy-initialization mode
   A lazy-initialized bean tells the IoC container to create a bean instance when it is first requested, rather than at the startup.
 
-8	initialization method
+8. initialization method
   A callback to be called just after all necessary properties on the bean have been set by the container. It will be discussed in bean life cycle chapter.
 
-9	destruction method
+9. destruction method
   A callback to be used when the container containing the bean is destroyed. It will be discussed in bean life cycle chapter.
                                             
   
