@@ -72,8 +72,8 @@ Bean definition contains the information called configuration metadata, which is
   1. How to create a bean
   2. Bean's lifecycle details
   3. Bean's dependencies
-All the above configuration metadata translates into a set of the following properties that make up each bean definition.
 
+All the above configuration metadata translates into a set of the following properties that make up each bean definition.
 1. class
   This attribute is mandatory and specifies the bean class to be used to create the bean.
 
