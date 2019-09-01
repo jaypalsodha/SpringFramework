@@ -62,6 +62,44 @@ This container adds more enterprise-specific functionality such as the ability t
 
 The ApplicationContext container includes all functionality of the BeanFactorycontainer, so it is generally recommended over BeanFactory. BeanFactory can still be used for lightweight applications like mobile devices or applet-based applications where data volume and speed is significant.
 
+
+# Spring - Bean Definition
+The objects that are form the backbone of your application and managed by the spring IOC container are called as Beans.
+A beans is an object that is instantiate, assembled and otherwise managed by IOC container.
+These beans are created using configuration metadata that you supply to the spring IOC container. 
+
+Bean definition contains the information called configuration metadata, which is needed for the container to know the following −
+  1. How to create a bean
+  2. Bean's lifecycle details
+  3. Bean's dependencies
+All the above configuration metadata translates into a set of the following properties that make up each bean definition.
+
+1	class
+  This attribute is mandatory and specifies the bean class to be used to create the bean.
+
+2	name
+  This attribute specifies the bean identifier uniquely. In XMLbased configuration metadata, you use the id and/or name attributes to specify the bean identifier(s).
+
+3	scope
+  This attribute specifies the scope of the objects created from a particular bean definition and it will be discussed in bean scopes chapter.
+
+4	constructor-arg
+  This is used to inject the dependencies and will be discussed in subsequent chapters.
+
+5	properties
+  This is used to inject the dependencies and will be discussed in subsequent chapters.
+
+6	autowiring mode
+  This is used to inject the dependencies and will be discussed in subsequent chapters.
+
+7	lazy-initialization mode
+  A lazy-initialized bean tells the IoC container to create a bean instance when it is first requested, rather than at the startup.
+
+8	initialization method
+  A callback to be called just after all necessary properties on the bean have been set by the container. It will be discussed in bean life cycle chapter.
+
+9	destruction method
+  A callback to be used when the container containing the bean is destroyed. It will be discussed in bean life cycle chapter.
                                             
   
 
