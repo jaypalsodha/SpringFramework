@@ -121,3 +121,25 @@ The Spring Framework supports the following five scopes, three of which are avai
 
 
 # Spring - Bean Life Cycle
+
+The life cycle of a Spring bean is easy to understand. When a bean is instantiated, it may be required to perform some initialization to get it into a usable state. Similarly, when the bean is no longer required and is removed from the container, some cleanup may be required.
+
+Though, there are lists of the activities that take place behind the scene between the time of bean Instantiation and its destruction.
+
+To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method parameters. The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation. Similarly, destroymethod specifies a method that is called just before a bean is removed from the container.
+  
+Initialization callbacks
+The org.springframework.beans.factory.InitializingBean interface specifies a single method −
+
+```
+void afterPropertiesSet() throws Exception;  
+
+Thus, you can simply implement the above interface and initialization work can be done inside afterPropertiesSet() method as follows −
+
+public class ExampleBean implements InitializingBean {
+   public void afterPropertiesSet() {
+      // do some initialization work
+   }
+}
+```
+
