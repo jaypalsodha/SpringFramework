@@ -26,3 +26,12 @@ The container will do the following task:-
   4. Manage their complete life cycle from creation till destruction
 
 The Spring container uses DI to manage the components that make up an application. These objects are called Spring Beans.
+The container get instructions on what objects to be instantiate, configure and assembled by reading the configuration metadata provided. 
+
+The configuration metadata can be in any form provided below:
+  1. XML based
+  2. Java Annotations
+  3. Java Codes
+  
+  
+
