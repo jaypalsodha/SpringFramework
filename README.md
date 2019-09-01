@@ -128,7 +128,7 @@ Though, there are lists of the activities that take place behind the scene betwe
 
 To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method parameters. The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation. Similarly, destroymethod specifies a method that is called just before a bean is removed from the container.
   
-Initialization callbacks
+# Initialization callbacks
 The org.springframework.beans.factory.InitializingBean interface specifies a single method −
 
 ```
@@ -143,3 +143,94 @@ public class ExampleBean implements InitializingBean {
 }
 ```
 
+In the case of XML-based configuration metadata, you can use the init-method attribute to specify the name of the method that has a void no-argument signature. For example −
+
+```
+<bean id = "exampleBean" class = "examples.ExampleBean" init-method = "init"/>
+Following is the class definition −
+
+public class ExampleBean {
+   public void init() {
+      // do some initialization work
+   }
+}
+```
+
+# Destruction callbacks
+The org.springframework.beans.factory.DisposableBean interface specifies a single method −
+
+```
+void destroy() throws Exception;
+Thus, you can simply implement the above interface and finalization work can be done inside destroy() method as follows −
+
+public class ExampleBean implements DisposableBean {
+   public void destroy() {
+      // do some destruction work
+   }
+}
+```
+
+In the case of XML-based configuration metadata, you can use the destroy-method attribute to specify the name of the method that has a void no-argument signature. For example −
+```
+<bean id = "exampleBean" class = "examples.ExampleBean" destroy-method = "destroy"/>
+Following is the class definition −
+
+public class ExampleBean {
+   public void destroy() {
+      // do some destruction work
+   }
+}
+```
+It is recommended that you do not use the InitializingBean or DisposableBean callbacks, because XML configuration gives much flexibility in terms of naming your method.
+
+Example below
+
+```
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+   public static void main(String[] args) {
+      AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+
+      HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+      obj.getMessage();
+      context.registerShutdownHook();
+   }
+}
+
+(Beans.xml)
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id = "helloWorld" class = "HelloWorld" init-method = "init" 
+      destroy-method = "destroy">
+      <property name = "message" value = "Hello World!"/>
+   </bean>
+
+</beans>
+
+public class HelloWorld {
+   private String message;
+
+   public void setMessage(String message){
+      this.message = message;
+   }
+   public void getMessage(){
+      System.out.println("Your Message : " + message);
+   }
+   public void init(){
+      System.out.println("Bean is going through init.");
+   }
+   public void destroy() {
+      System.out.println("Bean will destroy now.");
+   }
+}
+
+```
+
+# Spring - Bean Definition Inheritance
