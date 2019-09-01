@@ -49,6 +49,17 @@ The Spring IoC container makes use of Java POJO classes and configuration metada
 
 
 
+Spring provides the following two distinct types of containers.
+  1. Spring BeanFactory Container
+  2. Spring ApplicationContext container
+
+# Spring BeanFactory Container
+This is the simplest container providing the basic support for DI and is defined by the org.springframework.beans.factory.BeanFactory interface. 
+The BeanFactory and related interfaces, such as BeanFactoryAware, InitializingBean, DisposableBean, are still present in Spring for the purpose of backward compatibility with a large number of third-party frameworks that integrate with Spring.
+
+# Spring ApplicationContext Container
+This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners. This container is defined by the org.springframework.context.ApplicationContext interface.
+
 
                                             
   
