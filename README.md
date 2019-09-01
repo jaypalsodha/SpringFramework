@@ -16,3 +16,13 @@ One of the key components of Spring is the Aspect Oriented Programming (AOP) fra
 The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. DI helps you decouple your application objects from each other, while AOP helps you decouple cross-cutting concerns from the objects that they affect.
 
 The AOP module of Spring Framework provides an aspect-oriented programming implementation allowing you to define method-interceptors and pointcuts to cleanly decouple code that implements functionality that should be separated. 
+
+# Inversion of Control Container
+The Spring container is at the core of the Spring Framework. 
+The container will do the following task:- 
+  1. Create the objects, 
+  2. Wire them together, 
+  3. Configure them, and 
+  4. Manage their complete life cycle from creation till destruction
+
+The Spring container uses DI to manage the components that make up an application. These objects are called Spring Beans.
